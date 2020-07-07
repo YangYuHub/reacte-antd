@@ -6,7 +6,7 @@ const titles = [
   'Alipay',
   'Angular',
   'Ant Design',
-  'Ant Design Pro',
+  'COINFLEX Pro',
   'Bootstrap',
   'React',
   'Vue',

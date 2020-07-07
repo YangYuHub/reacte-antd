@@ -53,7 +53,10 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 
 const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
   menuList.map((item) => {
-    const localItem = { ...item, children: item.children ? menuDataRender(item.children) : [] };
+    const localItem = {
+      ...item,
+      children: item.children ? menuDataRender(item.children) : [],
+    };
     return Authorized.check(item.authority, localItem, null) as MenuDataItem;
   });
 
@@ -116,56 +119,73 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     }
   }; // get children authority
 
-  const authorized = getAuthorityFromRouter(props.route.routes, location.pathname || '/') || {
+  const authorized = getAuthorityFromRouter(
+    props.route.routes,
+    location.pathname || '/'
+  ) || {
     authority: undefined,
   };
   const { formatMessage } = useIntl();
   return (
     <>
       <ProLayout
-        logo={logo}
-        formatMessage={formatMessage}
-        menuHeaderRender={(logoDom, titleDom) => (
-          <Link to="/">
-            {logoDom}
-            {titleDom}
-          </Link>
+        layout="topmenu"
+        title="FLEX Pro"
+        disableMobile
+        rightContentRender={(rightProps) => (
+          <RightContent {...rightProps} {...settings} />
         )}
-        onCollapse={handleMenuCollapse}
-        menuItemRender={(menuItemProps, defaultDom) => {
-          if (menuItemProps.isUrl || menuItemProps.children || !menuItemProps.path) {
-            return defaultDom;
-          }
-
-          return <Link to={menuItemProps.path}>{defaultDom}</Link>;
-        }}
-        breadcrumbRender={(routers = []) => [
-          {
-            path: '/',
-            breadcrumbName: formatMessage({
-              id: 'menu.home',
-            }),
-          },
-          ...routers,
-        ]}
-        itemRender={(route, params, routes, paths) => {
-          const first = routes.indexOf(route) === 0;
-          return first ? (
-            <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-          ) : (
-            <span>{route.breadcrumbName}</span>
-          );
-        }}
-        footerRender={() => defaultFooterDom}
-        menuDataRender={menuDataRender}
-        rightContentRender={() => <RightContent />}
-        {...props}
-        {...settings}
+        contentStyle={{ margin: 0 }}
+        fixedHeader={true}
       >
-        <Authorized authority={authorized!.authority} noMatch={noMatch}>
-          {children}
-        </Authorized>
+        <ProLayout
+          logo={null}
+          formatMessage={formatMessage}
+          menuHeaderRender={false}
+          headerRender={false}
+          fixSiderbar={true}
+          onCollapse={handleMenuCollapse}
+          menuItemRender={(menuItemProps, defaultDom) => {
+            if (
+              menuItemProps.isUrl ||
+              menuItemProps.children ||
+              !menuItemProps.path
+            ) {
+              return defaultDom;
+            }
+
+            return <Link to={menuItemProps.path}>{defaultDom}</Link>;
+          }}
+          breadcrumbRender={(routers = []) => [
+            {
+              path: '/',
+              breadcrumbName: formatMessage({
+                id: 'menu.home',
+              }),
+            },
+            ...routers,
+          ]}
+       
+          itemRender={(route, params, routes, paths) => {
+            const first = routes.indexOf(route) === 0;
+            return first ? (
+              <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+            ) : (
+              <span>{route.breadcrumbName}</span>
+            );
+          }}
+          // footerRender={() => defaultFooterDom}
+          menuDataRender={menuDataRender}
+          // rightContentRender={() => <RightContent />}
+          {...props}
+          // {...settings}
+        >
+          <Authorized authority={authorized!.authority} noMatch={noMatch}>
+            {children}
+          </Authorized>
+        </ProLayout>
       </ProLayout>
+
       <SettingDrawer
         settings={settings}
         onSettingChange={(config) =>

@@ -14,8 +14,9 @@ const {
 export default defineConfig({
   hash: true,
   antd: {
-    dark: true, // 开启暗色主题
-    compact: true, // 开启紧凑主题
+    dark: false,
+    // 开启暗色主题
+    compact: false, // 开启紧凑主题
   },
   analytics: GA_KEY
     ? {
@@ -106,191 +107,197 @@ export default defineConfig({
                 },
               ],
             },
+            // {
+            //   path: '/form',
+            //   icon: 'form',
+            //   name: 'form',
+            //   routes: [
+            //     {
+            //       name: 'basic-form',
+            //       icon: 'smile',
+            //       path: '/form/basic-form',
+            //       component: './form/basic-form',
+            //     },
+            //     {
+            //       name: 'step-form',
+            //       icon: 'smile',
+            //       path: '/form/step-form',
+            //       component: './form/step-form',
+            //     },
+            //     {
+            //       name: 'advanced-form',
+            //       icon: 'smile',
+            //       path: '/form/advanced-form',
+            //       component: './form/advanced-form',
+            //     },
+            //   ],
+            // },
+            // {
+            //   path: '/list',
+            //   icon: 'table',
+            //   name: 'list',
+            //   routes: [
+            //     {
+            //       path: '/list/search',
+            //       name: 'search-list',
+            //       component: './list/search',
+            //       routes: [
+            //         {
+            //           path: '/list/search',
+            //           redirect: '/list/search/articles',
+            //         },
+            //         {
+            //           name: 'articles',
+            //           icon: 'smile',
+            //           path: '/list/search/articles',
+            //           component: './list/search/articles',
+            //         },
+            //         {
+            //           name: 'projects',
+            //           icon: 'smile',
+            //           path: '/list/search/projects',
+            //           component: './list/search/projects',
+            //         },
+            //         {
+            //           name: 'applications',
+            //           icon: 'smile',
+            //           path: '/list/search/applications',
+            //           component: './list/search/applications',
+            //         },
+            //       ],
+            //     },
+            //     {
+            //       name: 'table-list',
+            //       icon: 'smile',
+            //       path: '/list/table-list',
+            //       component: './list/table-list',
+            //     },
+            //     {
+            //       name: 'basic-list',
+            //       icon: 'smile',
+            //       path: '/list/basic-list',
+            //       component: './list/basic-list',
+            //     },
+            //     {
+            //       name: 'card-list',
+            //       icon: 'smile',
+            //       path: '/list/card-list',
+            //       component: './list/card-list',
+            //     },
+            //   ],
+            // },
+            // {
+            //   path: '/profile',
+            //   name: 'profile',
+            //   icon: 'profile',
+            //   routes: [
+            //     {
+            //       name: 'basic',
+            //       icon: 'smile',
+            //       path: '/profile/basic',
+            //       component: './profile/basic',
+            //     },
+            //     {
+            //       name: 'advanced',
+            //       icon: 'smile',
+            //       path: '/profile/advanced',
+            //       component: './profile/advanced',
+            //     },
+            //   ],
+            // },
+            // {
+            //   name: 'result',
+            //   icon: 'CheckCircleOutlined',
+            //   path: '/result',
+            //   routes: [
+            //     {
+            //       name: 'success',
+            //       icon: 'smile',
+            //       path: '/result/success',
+            //       component: './result/success',
+            //     },
+            //     {
+            //       name: 'fail',
+            //       icon: 'smile',
+            //       path: '/result/fail',
+            //       component: './result/fail',
+            //     },
+            //   ],
+            // },
+            // {
+            //   name: 'exception',
+            //   icon: 'warning',
+            //   path: '/exception',
+            //   routes: [
+            //     {
+            //       name: '403',
+            //       icon: 'smile',
+            //       path: '/exception/403',
+            //       component: './exception/403',
+            //     },
+            //     {
+            //       name: '404',
+            //       icon: 'smile',
+            //       path: '/exception/404',
+            //       component: './exception/404',
+            //     },
+            //     {
+            //       name: '500',
+            //       icon: 'smile',
+            //       path: '/exception/500',
+            //       component: './exception/500',
+            //     },
+            //   ],
+            // },
+            // {
+            //   name: 'account',
+            //   icon: 'user',
+            //   path: '/account',
+            //   routes: [
+            //     {
+            //       name: 'center',
+            //       icon: 'smile',
+            //       path: '/account/center',
+            //       component: './account/center',
+            //     },
+            //     {
+            //       name: 'settings',
+            //       icon: 'smile',
+            //       path: '/account/settings',
+            //       component: './account/settings',
+            //     },
+            //   ],
+            // },
+            // {
+            //   name: 'editor',
+            //   icon: 'highlight',
+            //   path: '/editor',
+            //   routes: [
+            //     {
+            //       name: 'flow',
+            //       icon: 'smile',
+            //       path: '/editor/flow',
+            //       component: './editor/flow',
+            //     },
+            //     {
+            //       name: 'mind',
+            //       icon: 'smile',
+            //       path: '/editor/mind',
+            //       component: './editor/mind',
+            //     },
+            //     {
+            //       name: 'koni',
+            //       icon: 'smile',
+            //       path: '/editor/koni',
+            //       component: './editor/koni',
+            //     },
+            //   ],
+            // },
             {
-              path: '/form',
-              icon: 'form',
-              name: 'form',
-              routes: [
-                {
-                  name: 'basic-form',
-                  icon: 'smile',
-                  path: '/form/basic-form',
-                  component: './form/basic-form',
-                },
-                {
-                  name: 'step-form',
-                  icon: 'smile',
-                  path: '/form/step-form',
-                  component: './form/step-form',
-                },
-                {
-                  name: 'advanced-form',
-                  icon: 'smile',
-                  path: '/form/advanced-form',
-                  component: './form/advanced-form',
-                },
-              ],
-            },
-            {
-              path: '/list',
-              icon: 'table',
-              name: 'list',
-              routes: [
-                {
-                  path: '/list/search',
-                  name: 'search-list',
-                  component: './list/search',
-                  routes: [
-                    {
-                      path: '/list/search',
-                      redirect: '/list/search/articles',
-                    },
-                    {
-                      name: 'articles',
-                      icon: 'smile',
-                      path: '/list/search/articles',
-                      component: './list/search/articles',
-                    },
-                    {
-                      name: 'projects',
-                      icon: 'smile',
-                      path: '/list/search/projects',
-                      component: './list/search/projects',
-                    },
-                    {
-                      name: 'applications',
-                      icon: 'smile',
-                      path: '/list/search/applications',
-                      component: './list/search/applications',
-                    },
-                  ],
-                },
-                {
-                  name: 'table-list',
-                  icon: 'smile',
-                  path: '/list/table-list',
-                  component: './list/table-list',
-                },
-                {
-                  name: 'basic-list',
-                  icon: 'smile',
-                  path: '/list/basic-list',
-                  component: './list/basic-list',
-                },
-                {
-                  name: 'card-list',
-                  icon: 'smile',
-                  path: '/list/card-list',
-                  component: './list/card-list',
-                },
-              ],
-            },
-            {
-              path: '/profile',
-              name: 'profile',
-              icon: 'profile',
-              routes: [
-                {
-                  name: 'basic',
-                  icon: 'smile',
-                  path: '/profile/basic',
-                  component: './profile/basic',
-                },
-                {
-                  name: 'advanced',
-                  icon: 'smile',
-                  path: '/profile/advanced',
-                  component: './profile/advanced',
-                },
-              ],
-            },
-            {
-              name: 'result',
-              icon: 'CheckCircleOutlined',
-              path: '/result',
-              routes: [
-                {
-                  name: 'success',
-                  icon: 'smile',
-                  path: '/result/success',
-                  component: './result/success',
-                },
-                {
-                  name: 'fail',
-                  icon: 'smile',
-                  path: '/result/fail',
-                  component: './result/fail',
-                },
-              ],
-            },
-            {
-              name: 'exception',
-              icon: 'warning',
-              path: '/exception',
-              routes: [
-                {
-                  name: '403',
-                  icon: 'smile',
-                  path: '/exception/403',
-                  component: './exception/403',
-                },
-                {
-                  name: '404',
-                  icon: 'smile',
-                  path: '/exception/404',
-                  component: './exception/404',
-                },
-                {
-                  name: '500',
-                  icon: 'smile',
-                  path: '/exception/500',
-                  component: './exception/500',
-                },
-              ],
-            },
-            {
-              name: 'account',
-              icon: 'user',
-              path: '/account',
-              routes: [
-                {
-                  name: 'center',
-                  icon: 'smile',
-                  path: '/account/center',
-                  component: './account/center',
-                },
-                {
-                  name: 'settings',
-                  icon: 'smile',
-                  path: '/account/settings',
-                  component: './account/settings',
-                },
-              ],
-            },
-            {
-              name: 'editor',
-              icon: 'highlight',
-              path: '/editor',
-              routes: [
-                {
-                  name: 'flow',
-                  icon: 'smile',
-                  path: '/editor/flow',
-                  component: './editor/flow',
-                },
-                {
-                  name: 'mind',
-                  icon: 'smile',
-                  path: '/editor/mind',
-                  component: './editor/mind',
-                },
-                {
-                  name: 'koni',
-                  icon: 'smile',
-                  path: '/editor/koni',
-                  component: './editor/koni',
-                },
-              ],
+              name: '空白页面',
+              icon: 'smile',
+              path: '/emptypage',
+              component: './EmptyPage',
             },
             {
               path: '/',
@@ -309,6 +316,20 @@ export default defineConfig({
   theme: {
     // ...darkTheme,
     'primary-color': defaultSettings.primaryColor,
+    'body-background': '#131426',
+    'component-background': '#131426',
+    'border-radius-base': '4px', // 组件/浮层圆角
+    'border-color-base': '#d9d9d9', // 边框色
+    'box-shadow-base': '0 2px 8px rgba(0, 0, 0, 0.15)', // 浮层阴影
+    'disabled-color': 'rgba(48,48,93,1)', // 失效色'
+    'btn-disable-bg': 'rgba(48,48,93,1)',
+    'btn-disable-color': '#ffffff',
+    'layout-body-background': '#252547',
+    'layout-header-background': '#252547',
+    'text-color': '#E5DFF5',
+    'text-color-secondary':'#E5DFF5',
+    'text-color-inverse':'#E5DFF5',
+    'dropdown-menu-submenu-disabled-bg':'#252547'
   },
   define: {
     REACT_APP_ENV: REACT_APP_ENV || false,
@@ -346,7 +367,6 @@ export default defineConfig({
             .map((a: string) => a.toLowerCase());
           return `antd-pro${arr.join('-')}-${localName}`.replace(/--/g, '-');
         }
-
         return localName;
       },
     },
